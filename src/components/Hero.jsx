@@ -320,7 +320,7 @@ const Hero = () => {
         <div className="flex flex-col gap-[32px]">
           {/* top */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
               duration: 0.25,
@@ -346,7 +346,7 @@ const Hero = () => {
 
           {/* bott */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
               duration: 0.5,
