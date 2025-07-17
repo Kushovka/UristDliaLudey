@@ -2,9 +2,11 @@ import clsx from "clsx";
 
 import { navItems, navItems_faq } from "../constants";
 
+
 const Navigation = () => {
+
   return (
-    <nav className="fixed w-[225px] shadow-[4px_0_10px_rgba(0,0,0,0.1)] h-screen">
+    <nav className="fixed md:flex hidden w-[225px] shadow-[4px_0_10px_rgba(0,0,0,0.1)] h-screen">
       <div className="flex flex-col items-center justify-between h-full py-[24px] px-[36px] gap-[35px]">
         <div className="flex flex-col gap-[35px]">
           <h1 className="text-[26px] font-medium text-blue01 text-center cursor-pointer">
@@ -25,7 +27,7 @@ const Navigation = () => {
                 <h1
                   className={clsx(
                     "text-[16px] font-semibold cursor-pointer",
-                    index === 0 ? "text-blue01" : "text-grey01"
+                    index === 0 ? "text-blue02" : "text-grey01"
                   )}
                 >
                   {item.name}

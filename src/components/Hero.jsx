@@ -1,26 +1,23 @@
 import React from "react";
-
 import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import clsx from "clsx";
-
 import { applicationItems, notifyItems, statItems } from "../constants";
-
 import icon from "/images/notifyItems/icon.svg";
-
 const Hero = () => {
   return (
-    <section className="pl-[256px] pr-[96px]">
+    <section className="md:pl-[256px] lg:pr-[96px] md:pr-[45px]">
       <div className="flex justify-center gap-[32px]">
         {/* right */}
         <div>
           {/* stat */}
-          <div className="flex gap-[33px] pb-[60px] ">
+          <div className="grid 2xl:grid-cols-4 grid-cols-2 md:gap-[33px] gap-[20px] 2xl:pb-[32px] pb-[30px]   items-stretch">
             {statItems.map((statItem, index) => (
               <div
                 key={index}
-                className="hover:scale-105 transition-all duration-300"
+                className="hover:scale-105 transition-all duration-300 "
               >
                 <motion.div
                   initial={{ opacity: 0, y: 100 }}
@@ -30,12 +27,12 @@ const Hero = () => {
                     ease: [0, 0, 0.2, 1],
                     delay: index * 0.3,
                   }}
-                  className="flex flex-col w-[286px] p-[24px] rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)]  cursor-pointer"
+                  className="flex flex-col xl:w-[286px] p-[24px] h-full rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)]  cursor-pointer"
                 >
-                  <p className="text-[16px] font-medium text-grey02">
+                  <p className="md:text-[16px] text-[14px] font-medium text-grey02 lg:whitespace-nowrap">
                     {statItem.title}
                   </p>
-                  <h1 className="text-[28px] font-semibold text-blue02">
+                  <h1 className="md:text-[28px] text-[22px] font-semibold text-blue02">
                     {statItem.content}
                   </h1>
                   <p
@@ -51,19 +48,45 @@ const Hero = () => {
             ))}
           </div>
 
+          {/* mob top */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.25,
+              ease: "easeOut",
+            }}
+            className="2xl:hidden flex flex-col shadow-[0_4px_10px_rgba(0,0,0,0.2)] rounded-[12px] p-[24px] gap-[24px] "
+          >
+            <h1 className="text-[18px] text-blue02 font-semibold">
+              Быстрые действия
+            </h1>
+            <div className="flex flex-col gap-[16px]">
+              <button className="bg-blue01 py-[12px] rounded-[8px] text-[16px] text-white font-medium px-[27px] whitespace-nowrap w-full">
+                Новая верификация
+              </button>
+              <button className="bg-blue01/20 py-[12px] rounded-[8px] text-[16px] text-blue01 font-medium px-[27px] whitespace-nowrap w-full">
+                Начать обработку
+              </button>
+              <button className="bg-blue01/20 py-[12px] rounded-[8px] text-[16px] text-blue01 font-medium px-[27px] whitespace-nowrap w-full">
+                Проверить кошелек
+              </button>
+            </div>
+          </motion.div>
+
           {/* application */}
-          <div className="rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)] px-[10px]">
-            <div className="flex items-center justify-between mb-[20px]">
+          <div className="rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)] px-[10px] ">
+            <div className="flex items-center justify-between mb-[20px]  mt-[30px]">
               <div className="flex items-center gap-[16px]">
                 <h1 className="text-[18px] font-semibold text-black">
                   Последние заявки
                 </h1>
-                <div className="flex items-center gap-[4px] cursor-pointer">
+                <div className="sm:flex hidden items-center gap-[4px] cursor-pointer">
                   <p className="text-[14px] text-grey01/80 font-medium">Все</p>
                   <IoIosArrowDown className="size-[18px] text-grey01" />
                 </div>
               </div>
-              <div className="relative max-w-[180px] w-full">
+              <div className="relative z-0 max-w-[180px] w-full">
                 <input
                   type="text"
                   placeholder="Поиск..."
@@ -74,27 +97,33 @@ const Hero = () => {
             </div>
             <div className="">
               <div className="flex justify-between gap-[20px] pb-[8px] border-b border-grey01/50 px-[50px]">
-                <h1 className="text-[14px] font-medium text-grey01">ID</h1>
-                <h1 className="text-[14px] font-medium text-grey01">Клиент</h1>
-                <h1 className="text-[14px] font-medium text-grey01">Сумма</h1>
-                <h1 className="text-[14px] font-medium text-grey01">Статус</h1>
-                <h1 className="text-[14px] font-medium text-grey01">Дата</h1>
-                <h1 className="text-[14px] font-medium text-grey01">
+                <h1 className="text-[14px] font-normal text-grey01">ID</h1>
+                <h1 className="text-[14px] font-normal text-grey01">Клиент</h1>
+                <h1 className="text-[14px] font-normal text-grey01 lg:block hidden ">
+                  Сумма
+                </h1>
+                <h1 className="text-[14px] font-normal text-grey01 lg:block hidden ">
+                  Статус
+                </h1>
+                <h1 className="text-[14px] font-normal text-grey01 xl:block hidden">
+                  Дата
+                </h1>
+                <h1 className="text-[14px] font-normal text-grey01 xl:block hidden ">
                   Ответственный
                 </h1>
               </div>
 
-              <div className="flex flex-col mt-[12px]">
+              <div className="relative flex flex-col mt-[12px]">
                 {applicationItems.map((item, idx) => (
                   <React.Fragment key={item.id}>
-                    <div className="grid grid-cols-6 gap-[20px] items-center py-[10px] rounded-[8px] hover:bg-grey01/5 transition min-w-[100px]">
+                    <div className="grid xl:grid-cols-6 lg:grid-cols-4 grid-cols-2 gap-[20px] items-center py-[10px] lg:px-[20px] xl:px-0 rounded-[8px] hover:bg-grey01/5 transition min-w-[100px]">
                       <h2 className="text-[16px] text-blue02 font-medium pl-[20px]">
                         {item.id}
                       </h2>
                       <h2 className="text-[16px] text-blue02 font-medium">
                         {item.client}
                       </h2>
-                      <h2 className="text-[16px] text-blue02 font-medium">
+                      <h2 className="text-[16px] text-blue02 font-medium lg:block hidden xl:whitespace-nowrap">
                         {item.startSum}{" "}
                         <span className="text-[14px] text-grey01">
                           {item.dop1Sum}
@@ -106,16 +135,19 @@ const Hero = () => {
                       </h2>
                       <div className="flex justify-start pl-[20px]">
                         <div
-                          className="px-[8px] py-[2px] rounded-[6px] text-[12px] font-medium whitespace-nowrap text-white"
-                          style={{ backgroundColor: item.statColor }}
+                          className="px-[8px] py-[2px] rounded-[6px] text-[14px] font-medium whitespace-nowrap text-white lg:block hidden "
+                          style={{
+                            backgroundColor: `${item.statColor}33`,
+                            color: item.statColor,
+                          }}
                         >
                           {item.stat}
                         </div>
                       </div>
-                      <h2 className="text-[14px] text-grey01 text-center">
+                      <h2 className="xl:block hidden text-[14px] text-grey01 text-center">
                         {item.date}
                       </h2>
-                      <h2 className="text-[16px] text-blue02 font-medium text-center">
+                      <h2 className="xl:block hidden text-[16px] text-blue02 font-medium text-center">
                         {item.manager}
                       </h2>
                     </div>
@@ -125,12 +157,15 @@ const Hero = () => {
                     )}
                   </React.Fragment>
                 ))}
+                <div className="">
+                  <IoIosArrowForward className="absolute top-1/2 -translate-y-1/2 -right-3 text-grey01 block xl:hidden" />
+                </div>
               </div>
             </div>
           </div>
 
           {/* result */}
-          <div className="grid grid-cols-2 gap-[32px] pt-[32px]">
+          <div className="grid xl:grid-cols-2 grid-cols-1 gap-[32px] pt-[32px]">
             {/* left */}
             <div className="hover:scale-105 transition-all duration-300">
               <motion.div
@@ -140,7 +175,7 @@ const Hero = () => {
                   duration: 0.5,
                   ease: "easeOut",
                 }}
-                className="rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-[24px] flex flex-col gap-[24px]  cursor-pointer"
+                className="rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.2)] p-[24px] flex flex-col gap-[24px] cursor-pointer"
               >
                 <div>
                   <h1 className="text-[18px] text-black font-semibold">
@@ -150,10 +185,10 @@ const Hero = () => {
                 <div className="flex flex-col gap-[14px]">
                   {/* 1 */}
                   <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       ФИКС
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#BFDBFE] overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#1E40AF] rounded-[4px]"
@@ -168,10 +203,10 @@ const Hero = () => {
 
                   {/* 2 */}
                   <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       AML-OK
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#DCFCE7] overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#166534] rounded-[4px]"
@@ -186,10 +221,10 @@ const Hero = () => {
 
                   {/* 3 */}
                   <div className="flex items-center justify-between gap-[20px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       Верификация
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#FEF9C3] overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#A16207] rounded-[4px]"
@@ -204,10 +239,10 @@ const Hero = () => {
 
                   {/* 4 */}
                   <div className="flex items-center justify-between gap-[20px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       Отклоненные
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#FEE2E2] overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#BE123C] rounded-[4px]"
@@ -241,10 +276,10 @@ const Hero = () => {
                 <div className="flex flex-col gap-[14px]">
                   {/* 1 */}
                   <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       Менеджер 1
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#3B82F6]/20 overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#3B82F6] rounded-[4px]"
@@ -259,10 +294,10 @@ const Hero = () => {
 
                   {/* 2 */}
                   <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       Менеджер 2
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#3B82F6]/20 overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#3B82F6] rounded-[4px]"
@@ -277,10 +312,10 @@ const Hero = () => {
 
                   {/* 3 */}
                   <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                    <p className="2xl:text-[16px] xl:text-[14px] text-grey01 font-semibold">
                       Менеджер 3
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#3B82F6]/20 overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#3B82F6] rounded-[4px]"
@@ -294,11 +329,11 @@ const Hero = () => {
                   </div>
 
                   {/* 4 */}
-                  <div className="flex items-center justify-between gap-[10px]">
-                    <p className="text-[16px] text-grey01 font-semibold">
+                  <div className="flex items-center justify-between gap-[10px] ">
+                    <p className="2xl:text-[16px] xl:text-[14px]  text-grey01 font-semibold">
                       Прочие
                     </p>
-                    <div className="flex items-center gap-[14px] w-full max-w-[400px]">
+                    <div className="flex items-center gap-[14px] w-full 2xl:max-w-[400px] xl:max-w-[200px] md:max-w-[300px] sm:max-w-[300px] max-w-[150px]">
                       <div className="relative w-full h-[19px] rounded-[4px] bg-[#9DA1AA]/20 overflow-hidden">
                         <div
                           className="absolute top-0 left-0 h-full bg-[#9DA1AA] rounded-[4px]"
@@ -317,7 +352,7 @@ const Hero = () => {
         </div>
 
         {/* left */}
-        <div className="flex flex-col gap-[32px]">
+        <div className="xl:flex hidden flex-col gap-[32px] w-[20%]">
           {/* top */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -326,7 +361,7 @@ const Hero = () => {
               duration: 0.25,
               ease: "easeOut",
             }}
-            className="flex flex-col shadow-[0_4px_10px_rgba(0,0,0,0.2)] rounded-[12px] p-[24px] gap-[24px]"
+            className="2xl:flex hidden flex-col shadow-[0_4px_10px_rgba(0,0,0,0.2)] rounded-[12px] p-[24px] gap-[24px]"
           >
             <h1 className="text-[18px] text-blue02 font-semibold">
               Быстрые действия
@@ -352,7 +387,7 @@ const Hero = () => {
               duration: 0.5,
               ease: "easeOut",
             }}
-            className="flex flex-col shadow-[0_4px_10px_rgba(0,0,0,0.2)] rounded-[12px] p-[24px] pb-[47px] gap-[24px]"
+            className="xl:flex hidden flex-col shadow-[0_4px_10px_rgba(0,0,0,0.2)] rounded-[12px] p-[24px] xl:pb-[118px] pb-[45px] gap-[24px]"
           >
             <h1 className="text-[18px] text-blue02 font-semibold">
               Уведомления

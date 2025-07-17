@@ -71,36 +71,72 @@ const chatIcons_1 = [
 const chatItems = [
   {
     imgPath: chatItems_img1,
+    name: "Виктор Иванов",
+    text: "Эй, проверь почту)",
+    time: "12:15",
+    message: "1",
   },
   {
     imgPath: chatItems_img2,
+    name: "Даниил Морозов",
+    text: "Сегодня будет...",
+    time: "10:05",
+    message: "3",
   },
   {
     imgPath: chatItems_img3,
+    name: "Айлин Карпова",
+    text: "Документы не...",
+    time: "10:05",
+    message: "10",
   },
   {
     imgPath: chatItems_img4,
+    name: "Дмитрий Наумов",
+    text: "RC-007 — встр...",
+    time: "10:05",
   },
   {
     imgPath: chatItems_img5,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img6,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img7,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img8,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img9,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img10,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
   {
     imgPath: chatItems_img11,
+    name: "Имя Фамилия",
+    text: "Пример текста",
+    time: "Вчера",
   },
 ];
 const chatIcons_2 = [
